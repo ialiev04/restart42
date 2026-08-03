@@ -2,6 +2,8 @@
 
 Brain::Brain()
 {
+	for (int i = 0; i < 100; i++)
+		_ideas[i] = "no thoughts, head empty";
 	std::cout << "Brain default constructor called" << std::endl;
 }
 
@@ -26,4 +28,14 @@ Brain &Brain::operator=(const Brain &other)
 Brain::~Brain()
 {
 	std::cout << "Brain Destructor called" << std::endl;
+}
+
+void Brain::setIdea(int i, std::string idea)
+{
+	_ideas[i] = idea;
+}
+
+std::string Brain::getIdea(int i)
+{
+	return _ideas[i];
 }

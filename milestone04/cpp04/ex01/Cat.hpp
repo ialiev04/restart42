@@ -11,7 +11,9 @@ class Cat: public Animal
 		Cat &operator=(const Cat &other);
 		~Cat();
 
-		void	makeSound() const override;
+		void		makeSound() const override;
+		void		setIdea(int i, std::string idea);
+		std::string	getIdea(int i);
 
 	private:
 		Brain *_brain;
