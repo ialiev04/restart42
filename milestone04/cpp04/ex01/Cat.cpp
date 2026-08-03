@@ -11,7 +11,7 @@ Cat::Cat()
 Cat::Cat(const Cat &other)
 {
 	_type = other._type;
-	_brain = other._brain; // maybe not a deep copy
+	_brain = new Brain(*other._brain);
 	std::cout << "Cat copy constructor called" << std::endl;
 }
 
@@ -19,7 +19,8 @@ Cat &Cat::operator=(const Cat &other)
 {
 	if (this != &other)
 	{
-		_brain = other._brain; // maybe not a deep copy
+		delete _brain;
+		_brain = new Brain(*other._brain);
 		_type = other._type;
 	}
 	std::cout << "Cat Copy assignment operator called" << std::endl;

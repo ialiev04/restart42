@@ -11,7 +11,7 @@ Dog::Dog()
 Dog::Dog(const Dog &other)
 {
 	_type = other._type;
-	_brain = other._brain; // maybe not a deep copy
+	_brain = new Brain(*other._brain);
 	std::cout << "Dog copy constructor called" << std::endl;
 }
 
@@ -19,7 +19,8 @@ Dog &Dog::operator=(const Dog &other)
 {
 	if (this != &other)
 	{
-		_brain = other._brain; // maybe not a deep copy
+		delete _brain;
+		_brain = new Brain(*other._brain);
 		_type = other._type;
 	}
 	std::cout << "Dog Copy assignment operator called" << std::endl;
